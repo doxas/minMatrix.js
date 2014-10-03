@@ -1,7 +1,6 @@
 // ------------------------------------------------------------------------------------------------
-// minMatrixb.js
-// version 0.0.2
-// Copyright (c) doxas
+// minMatrix.js
+// version 0.0.3
 // ------------------------------------------------------------------------------------------------
 
 function matIV(){
@@ -357,25 +356,26 @@ function qtnIV(){
 }
 
 function torus(row, column, irad, orad, color){
+	var i, j, tc;
 	var pos = new Array(), nor = new Array(),
 	    col = new Array(), st  = new Array(), idx = new Array();
-	for(var i = 0; i <= row; i++){
+	for(i = 0; i <= row; i++){
 		var r = Math.PI * 2 / row * i;
 		var rr = Math.cos(r);
 		var ry = Math.sin(r);
-		for(var ii = 0; ii <= column; ii++){
-			var tr = Math.PI * 2 / column * ii;
+		for(j = 0; j <= column; j++){
+			var tr = Math.PI * 2 / column * j;
 			var tx = (rr * irad + orad) * Math.cos(tr);
 			var ty = ry * irad;
 			var tz = (rr * irad + orad) * Math.sin(tr);
 			var rx = rr * Math.cos(tr);
 			var rz = rr * Math.sin(tr);
 			if(color){
-				var tc = color;
+				tc = color;
 			}else{
-				tc = hsva(360 / column * ii, 1, 1, 1);
+				tc = hsva(360 / column * j, 1, 1, 1);
 			}
-			var rs = 1 / column * ii;
+			var rs = 1 / column * j;
 			var rt = 1 / row * i + 0.5;
 			if(rt > 1.0){rt -= 1.0;}
 			rt = 1.0 - rt;
@@ -386,8 +386,8 @@ function torus(row, column, irad, orad, color){
 		}
 	}
 	for(i = 0; i < row; i++){
-		for(ii = 0; ii < column; ii++){
-			r = (column + 1) * i + ii;
+		for(j = 0; j < column; j++){
+			r = (column + 1) * i + j;
 			idx.push(r, r + column + 1, r + 1);
 			idx.push(r + column + 1, r + column + 2, r + 1);
 		}
@@ -396,34 +396,35 @@ function torus(row, column, irad, orad, color){
 }
 
 function sphere(row, column, rad, color){
+	var i, j, tc;
 	var pos = new Array(), nor = new Array(),
 	    col = new Array(), st  = new Array(), idx = new Array();
-	for(var i = 0; i <= row; i++){
+	for(i = 0; i <= row; i++){
 		var r = Math.PI / row * i;
 		var ry = Math.cos(r);
 		var rr = Math.sin(r);
-		for(var ii = 0; ii <= column; ii++){
-			var tr = Math.PI * 2 / column * ii;
+		for(j = 0; j <= column; j++){
+			var tr = Math.PI * 2 / column * j;
 			var tx = rr * rad * Math.cos(tr);
 			var ty = ry * rad;
 			var tz = rr * rad * Math.sin(tr);
 			var rx = rr * Math.cos(tr);
 			var rz = rr * Math.sin(tr);
 			if(color){
-				var tc = color;
+				tc = color;
 			}else{
 				tc = hsva(360 / row * i, 1, 1, 1);
 			}
 			pos.push(tx, ty, tz);
 			nor.push(rx, ry, rz);
 			col.push(tc[0], tc[1], tc[2], tc[3]);
-			st.push(1 - 1 / column * ii, 1 / row * i);
+			st.push(1 - 1 / column * j, 1 / row * i);
 		}
 	}
 	r = 0;
 	for(i = 0; i < row; i++){
-		for(ii = 0; ii < column; ii++){
-			r = (column + 1) * i + ii;
+		for(j = 0; j < column; j++){
+			r = (column + 1) * i + j;
 			idx.push(r, r + 1, r + column + 2);
 			idx.push(r, r + column + 2, r + column + 1);
 		}
@@ -432,7 +433,7 @@ function sphere(row, column, rad, color){
 }
 
 function cube(side, color){
-	var hs = side * 0.5;
+	var tc, hs = side * 0.5;
 	var pos = [
 		-hs, -hs,  hs,  hs, -hs,  hs,  hs,  hs,  hs, -hs,  hs,  hs,
 		-hs, -hs, -hs, -hs,  hs, -hs,  hs,  hs, -hs,  hs, -hs, -hs,
@@ -452,7 +453,7 @@ function cube(side, color){
 	var col = new Array();
 	for(var i = 0; i < pos.length / 3; i++){
 		if(color){
-			var tc = color;
+			tc = color;
 		}else{
 			tc = hsva(360 / pos.length / 3 * i, 1, 1, 1);
 		}
