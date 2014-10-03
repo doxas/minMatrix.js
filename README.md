@@ -1,4 +1,5 @@
-minMatrix.js
-============
+# minMatrix.js
 
-simple math library of matrix and quaternion 
+シンプルな行列とクォータニオンを扱うことができるライブラリです。
+
+完全ライセンスフリーなので特に許可とかいりませんのでご自由にご利用ください。
