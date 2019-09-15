@@ -15,6 +15,7 @@ function matIV(){
         return dest;
     };
     this.multiply = function(mat1, mat2, dest){
+        if(dest == null){dest = this.create();}
         var a = mat1[0],  b = mat1[1],  c = mat1[2],  d = mat1[3],
             e = mat1[4],  f = mat1[5],  g = mat1[6],  h = mat1[7],
             i = mat1[8],  j = mat1[9],  k = mat1[10], l = mat1[11],
@@ -111,6 +112,7 @@ function matIV(){
         return dest;
     };
     this.lookAt = function(eye, center, up, dest){
+        if(dest == null){dest = this.create();}
         var eyeX    = eye[0],    eyeY    = eye[1],    eyeZ    = eye[2],
             upX     = up[0],     upY     = up[1],     upZ     = up[2],
             centerX = center[0], centerY = center[1], centerZ = center[2];
@@ -147,6 +149,7 @@ function matIV(){
         return dest;
     };
     this.perspective = function(fovy, aspect, near, far, dest){
+        if(dest == null){dest = this.create();}
         var r = 1 / Math.tan(fovy * Math.PI / 360);
         var d = far - near;
         dest[0]  = r / aspect;
@@ -168,6 +171,7 @@ function matIV(){
         return dest;
     };
     this.ortho = function(left, right, top, bottom, near, far, dest) {
+        if(dest == null){dest = this.create();}
         var h = (right - left);
         var v = (top - bottom);
         var d = (far - near);
@@ -190,6 +194,7 @@ function matIV(){
         return dest;
     };
     this.transpose = function(mat, dest){
+        if(dest == null){dest = this.create();}
         dest[0]  = mat[0];  dest[1]  = mat[4];
         dest[2]  = mat[8];  dest[3]  = mat[12];
         dest[4]  = mat[1];  dest[5]  = mat[5];
@@ -201,6 +206,7 @@ function matIV(){
         return dest;
     };
     this.inverse = function(mat, dest){
+        if(dest == null){dest = this.create();}
         var a = mat[0],  b = mat[1],  c = mat[2],  d = mat[3],
             e = mat[4],  f = mat[5],  g = mat[6],  h = mat[7],
             i = mat[8],  j = mat[9],  k = mat[10], l = mat[11],
@@ -241,6 +247,7 @@ function qtnIV(){
         return dest;
     };
     this.inverse = function(qtn, dest){
+        if(dest == null){dest = this.create();}
         dest[0] = -qtn[0];
         dest[1] = -qtn[1];
         dest[2] = -qtn[2];
@@ -265,6 +272,7 @@ function qtnIV(){
         return dest;
     };
     this.multiply = function(qtn1, qtn2, dest){
+        if(dest == null){dest = this.create();}
         var ax = qtn1[0], ay = qtn1[1], az = qtn1[2], aw = qtn1[3];
         var bx = qtn2[0], by = qtn2[1], bz = qtn2[2], bw = qtn2[3];
         dest[0] = ax * bw + aw * bx + ay * bz - az * by;
@@ -286,6 +294,7 @@ function qtnIV(){
         return dest;
     };
     this.toVecIII = function(vec, qtn, dest){
+        if(dest == null){dest = this.create();}
         var qp = this.create();
         var qq = this.create();
         var qr = this.create();
@@ -487,7 +496,7 @@ function hsva(h, s, v, a){
     var k = v * (1 - s * (1 - f));
     var color = new Array();
     if(!s > 0 && !s < 0){
-        color.push(v, v, v, a); 
+        color.push(v, v, v, a);
     } else {
         var r = new Array(v, n, m, m, k, v);
         var g = new Array(k, v, v, n, m, m);
