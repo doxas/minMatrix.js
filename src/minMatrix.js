@@ -81,7 +81,7 @@ export class Mat4 {
     /**
      * 行列に拡大縮小を適用する（第三引数が与えられた場合その行列に結果を代入する）
      * @param {Mat4} mat - 適用を受ける行列
-     * @param {Vec3} vec - XYZ の各軸に対して拡縮を適用する値の行列
+     * @param {Vec3} vec - XYZ の各軸に対して拡縮を適用する値のベクトル
      * @param {Mat4} [source] - 結果を格納する行列
      * @return {Mat4} 結果の行列
      */
