@@ -158,7 +158,7 @@ export class Mat4 {
                 out[12] = mat[12]; out[13] = mat[13];
                 out[14] = mat[14]; out[15] = mat[15];
             }
-        } else {
+        }else{
             out = mat;
         }
         out[0]  = g * s + k * t + o * u;
