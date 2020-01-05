@@ -31,12 +31,12 @@ describe('static method in Mat4', () => {
         expect(Mat4.create()).every(new Array(16).fill(0.0));
     });
     test('Mat4.identity', () => {
-        const target = new Float32Array([
+        const target = [
             1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, 1, 0,
             0, 0, 0, 1
-        ]);
+        ];
         expect(Mat4.identity()).every(target);
     });
 });
