@@ -866,7 +866,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let planeData = gl3.Mesh.plane(2.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
+     * let planeData = Geometry.plane(2.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static plane(width, height, color){
         let w, h;
@@ -920,7 +920,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let circleData = gl3.Mesh.circle(64, 1.0, [1.0, 1.0, 1.0, 1.0]);
+     * let circleData = Geometry.circle(64, 1.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static circle(split, rad, color){
         let i, j = 0;
@@ -959,7 +959,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let cubeData = gl3.Mesh.cube(2.0, [1.0, 1.0, 1.0, 1.0]);
+     * let cubeData = Geometry.cube(2.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static cube(side, color){
         let hs = side * 0.5;
@@ -1016,7 +1016,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let coneData = gl3.Mesh.cone(64, 1.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
+     * let coneData = Geometry.cone(64, 1.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static cone(split, rad, height, color){
         let i, j = 0;
@@ -1074,7 +1074,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let cylinderData = gl3.Mesh.cylinder(64, 0.5, 1.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
+     * let cylinderData = Geometry.cylinder(64, 0.5, 1.0, 2.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static cylinder(split, topRad, bottomRad, height, color){
         let i, j = 2;
@@ -1142,7 +1142,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let sphereData = gl3.Mesh.sphere(64, 64, 1.0, [1.0, 1.0, 1.0, 1.0]);
+     * let sphereData = Geometry.sphere(64, 64, 1.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static sphere(row, column, rad, color){
         let i, j;
@@ -1189,7 +1189,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let torusData = gl3.Mesh.torus(64, 64, 0.25, 0.75, [1.0, 1.0, 1.0, 1.0]);
+     * let torusData = Geometry.torus(64, 64, 0.25, 0.75, [1.0, 1.0, 1.0, 1.0]);
      */
     static torus(row, column, irad, orad, color){
         let i, j;
@@ -1237,7 +1237,7 @@ export class Geometry {
      * @property {Array.<number>} texCoord - テクスチャ座標
      * @property {Array.<number>} index - 頂点インデックス（gl.TRIANGLES）
      * @example
-     * let icosaData = gl3.Mesh.icosahedron(1.0, [1.0, 1.0, 1.0, 1.0]);
+     * let icosaData = Geometry.icosahedron(1.0, [1.0, 1.0, 1.0, 1.0]);
      */
     static icosahedron(rad, color){
         let i, j;
