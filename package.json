@@ -1,0 +1,26 @@
+{
+  "name": "minmatrix",
+  "version": "1.0.0",
+  "description": "simple math library.",
+  "main": "src/minMatrix.js",
+  "scripts": {
+    "test": "jest",
+    "doc": "esdoc -c ./__docs__/esdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doxas/minMatrix.js.git"
+  },
+  "author": "doxas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doxas/minMatrix.js/issues"
+  },
+  "homepage": "https://github.com/doxas/minMatrix.js#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "jest": "^24.9.0"
+  }
+}
