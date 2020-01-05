@@ -1,0 +1,4 @@
+
+/node_modules
+/__docs__/*
+!/__docs__/esdoc.json
