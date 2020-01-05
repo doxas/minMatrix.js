@@ -16,23 +16,31 @@ webpack 等のビルドツールは使っていませんので、そのままソ
 * `Qtn` - クォータニオンを扱うクラス
 * `Geometry` - いくつかのジオメトリ構造を生成するクラス
 
-## ユニットテスト
-
-```
-$ npm run test
-```
-
 ## ドキュメントの生成
+
+以下のコマンドで ESDoc によるドキュメントの自動生成を行います。
 
 ```
 $ npm run doc
 ```
 
+生成されたドキュメントは `__docs__` 以下に格納されます。
+
+## ユニットテスト
+
+以下のコマンドで Jest によるユニットテストの結果を表示します。
+
+```
+$ npm run test
+```
+
+テストファイルは `__tests__` 以下にあります。`export` 等の構文を含むファイルをテストするために `@babel/plugin-transform-modules-commonjs` を利用しています。
+
 ## special thanks
 
 * [Babel · The compiler for next generation JavaScript](https://babeljs.io/)
-* [Jest · 🃏 Delightful JavaScript Testing](https://jestjs.io/)
 * [ESDoc \- A Good Documentation Generator for JavaScript \| esdoc\-site](https://esdoc.org/)
+* [Jest · 🃏 Delightful JavaScript Testing](https://jestjs.io/)
 
 ## LICENSE
 
