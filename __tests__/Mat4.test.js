@@ -79,5 +79,86 @@ describe('static method in Mat4', () => {
         const target = [];
         expect(Mat4.copy(source, target) === target).toBeTruthy();
     });
+    test('Mat4.multiply [omit argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const copied = Mat4.copy(source);
+        const target = [
+            34,  44,  54,  64,
+            82, 108, 134, 160,
+            34,  44,  54,  64,
+            82, 108, 134, 160
+        ];
+        expect(Mat4.multiply(source, copied)).every(target);
+    });
+    test('Mat4.multiply [specify argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const copied = Mat4.copy(source);
+        const target = [];
+        expect(Mat4.multiply(source, copied, target) === target).toBeTruthy();
+    });
+    test('Mat4.scale [omit argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const vector = [1, 2, 3];
+        const target = [
+             1,  2,  3,  4,
+            10, 12, 14, 16,
+             3,  6,  9, 12,
+             5,  6,  7,  8,
+        ];
+        expect(Mat4.scale(source, vector)).every(target);
+    });
+    test('Mat4.scale [specify argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const vector = [1, 2, 3];
+        const target = [];
+        expect(Mat4.scale(source, vector, target) === target).toBeTruthy();
+    });
+    test('Mat4.translate [omit argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const vector = [1, 2, 3];
+        const target = [
+             1,  2,  3,  4,
+             5,  6,  7,  8,
+             1,  2,  3,  4,
+            19, 26, 33, 40
+        ];
+        expect(Mat4.translate(source, vector)).every(target);
+    });
+    test('Mat4.translate [specify argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const vector = [1, 2, 3];
+        const target = [];
+        expect(Mat4.translate(source, vector, target) === target).toBeTruthy();
+    });
 });
 
