@@ -243,8 +243,83 @@ describe('static method in Mat4', () => {
         const near   = 0.1;
         const far    = 10.0;
         expect(Mat4.ortho(left, right, top, bottom, near, far, source) === source).toBeTruthy();
-
-        // console.log(Mat4.ortho(-1, 1, 1, -1, 0.1, 10.0));
+    });
+    test('Mat4.transpose [omit argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const target = [
+            1, 5, 1, 5,
+            2, 6, 2, 6,
+            3, 7, 3, 7,
+            4, 8, 4, 8
+        ];
+        expect(Mat4.transpose(source)).every(target);
+    });
+    test('Mat4.transpose [specify argument]', () => {
+        const source = [
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+        ];
+        const target = [];
+        expect(Mat4.transpose(source, target) === target).toBeTruthy();
+    });
+    test('Mat4.inverse [omit argument]', () => {
+        const source = [
+            1, 0, 0, 1,
+            0, 1, 0, 2,
+            0, 0, 1, 3,
+            1, 2, 3, 1,
+        ];
+        const target = [
+              0.9230769276618958, -0.1538461595773697, -0.23076923191547394,  0.07692307978868484,
+             -0.1538461595773697,   0.692307710647583,  -0.4615384638309479,   0.1538461595773697,
+            -0.23076923191547394, -0.4615384638309479,   0.3076923191547394,  0.23076923191547394,
+             0.07692307978868484,  0.1538461595773697,  0.23076923191547394, -0.07692307978868484
+        ];
+        expect(Mat4.inverse(source)).every(target);
+    });
+    test('Mat4.inverse [specify argument]', () => {
+        const source = [
+            1, 0, 0, 1,
+            0, 1, 0, 2,
+            0, 0, 1, 3,
+            1, 2, 3, 1,
+        ];
+        const target = [];
+        expect(Mat4.inverse(source, target) === target).toBeTruthy();
+    });
+    test('Mat4.toVecIV', () => {
+        const source = Mat4.scale(Mat4.identity(), [1.0, 2.0, 3.0]);
+        const vector = [1, 2, 3, 4];
+        const target = [1, 4, 9, 4];
+        expect(Mat4.toVecIV(source, vector)).every(target);
+    });
+    test('Mat4.vpFromCameraProperty', () => {
+        const view              = Mat4.identity();
+        const projection        = Mat4.identity();
+        const viewProjection    = Mat4.identity();
+        const cameraPosition    = [0, 0, 1];
+        const cameraCenter      = [0, 0, 0];
+        const cameraUpDirection = [0, 1, 0];
+        const fovy              = 45;
+        const aspect            = 1.0;
+        const near              = 0.1;
+        const far               = 1.0;
+        expect(Mat4.vpFromCameraProperty(
+            cameraPosition, cameraCenter, cameraUpDirection,
+            fovy, aspect, near, far,
+            view, projection, viewProjection
+        )).toEqual({
+            view: view,
+            projection: projection,
+            viewProjection: viewProjection,
+        });
     });
 });
 
