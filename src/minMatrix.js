@@ -539,10 +539,10 @@ export class Vec3 {
         return out;
     }
     /**
-     * ３つのベクトルから面法線を求めて返す
-     * @param {Vec3} v0 - ３つの要素を持つベクトル
-     * @param {Vec3} v1 - ３つの要素を持つベクトル
-     * @param {Vec3} v2 - ３つの要素を持つベクトル
+     * ３つの座標から面法線を求めて返す
+     * @param {Vec3} v0 - ３つの要素を持つ座標
+     * @param {Vec3} v1 - ３つの要素を持つ座標
+     * @param {Vec3} v2 - ３つの要素を持つ座標
      * @return {Vec3} 面法線ベクトル
      */
     static faceNormal(v0, v1, v2){
