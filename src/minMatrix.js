@@ -392,7 +392,7 @@ export class Mat4 {
     /**
      * MVP 行列に相当する行列を受け取りベクトルを変換して返す
      * @param {Mat4} mat - MVP 行列
-     * @param {Array.<number>} vec - MVP 行列と乗算するベクトル
+     * @param {Array.<number>} vec - MVP 行列と乗算する３つの要素を持つベクトル
      * @param {number} width - ビューポートの幅
      * @param {number} height - ビューポートの高さ
      * @return {Array.<number>} 結果のベクトル（２つの要素を持つベクトル）
