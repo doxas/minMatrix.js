@@ -321,5 +321,32 @@ describe('static method in Mat4', () => {
             viewProjection: viewProjection,
         });
     });
+    test('Mat4.screenPositionFromMvp', () => {
+        const source = Mat4.identity();
+        const vector = [0, 0, 0];
+        const width  = 1920;
+        const height = 1080;
+        const target = [960, 540];
+        expect(Mat4.screenPositionFromMvp(source, vector, width, height)).every(target);
+    });
+    test('Mat4.compose [omit argument]', () => {
+        const translate = [1, 2, 3];
+        const qtn = [1, 0, 0, 0];
+        const scale = [1, 1, 1];
+        const target = [
+            1,  0,  0,  0,
+            0, -1,  0,  0,
+            0,  0, -1,  0,
+            1,  2,  3,  1
+        ];
+        expect(Mat4.compose(translate, qtn, scale)).every(target);
+    });
+    test('Mat4.compose [specify argument]', () => {
+        const source = Mat4.identity();
+        const translate = [1, 2, 3];
+        const qtn = [1, 0, 0, 0];
+        const scale = [1, 1, 1];
+        expect(Mat4.compose(translate, qtn, scale, source) === source).toBeTruthy();
+    });
 });
 
