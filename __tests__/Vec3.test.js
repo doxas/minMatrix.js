@@ -40,5 +40,19 @@ describe('static method in Vec3', () => {
         const target = [];
         expect(Vec3.copy(source, target) === target).toBeTruthy();
     });
+    test('Vec3.length', () => {
+        const source = [1, 1, 1];
+        expect(Vec3.length(source)).toBe(Math.sqrt(3));
+    });
+    test('Vec3.distance', () => {
+        const source1 = [0, 0, 0];
+        const source2 = [1, 2, 3];
+        const target = [1, 2, 3];
+        expect(Vec3.distance(source1, source2)).every(target);
+    });
+    test('Vec3.normalize', () => {
+        const source = [10, 0, 0];
+        expect(Vec3.normalize(source)).every([1, 0, 0]);
+    });
 });
 
