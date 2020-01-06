@@ -88,5 +88,46 @@ describe('static method in Qtn', () => {
         const target = [];
         expect(Qtn.rotate(angle, axis, target) === target).toBeTruthy();
     });
+    test('Qtn.toVecIII [omit argument]', () => {
+        const vector = [1, 0, 0];
+        const qtn = Qtn.rotate(Math.PI * 0.5, [0, 0, 1]);
+        const target = [0, -0.9999999403953552, 0];
+        expect(Qtn.toVecIII(vector, qtn)).every(target);
+    });
+    test('Qtn.toVecIII [specify argument]', () => {
+        const vector = [1, 0, 0];
+        const qtn = Qtn.rotate(Math.PI * 0.5, [0, 0, 1]);
+        const target = [];
+        expect(Qtn.toVecIII(vector, qtn, target) === target).toBeTruthy();
+    });
+    test('Qtn.toMatIV [omit argument]', () => {
+        const qtn = Qtn.rotate(Math.PI * 0.5, [0, 0, 1]);
+        const target = [
+            3.422854177870249e-8,  -0.9999999403953552, 0, 0,
+              0.9999999403953552, 3.422854177870249e-8, 0, 0,
+                               0,                    0, 1, 0,
+                               0,                    0, 0, 1
+        ];
+        expect(Qtn.toMatIV(qtn)).every(target);
+    });
+    test('Qtn.toMatIV [specify argument]', () => {
+        const qtn = Qtn.rotate(Math.PI * 0.5, [0, 0, 1]);
+        const target = [];
+        expect(Qtn.toMatIV(qtn, target) === target).toBeTruthy();
+    });
+    test('Qtn.slerp [omit argument]', () => {
+        const qtn1 = Qtn.rotate(Math.PI * 0.5, [1, 0, 0]);
+        const qtn2 = Qtn.rotate(Math.PI * 0.5, [0, 1, 0]);
+        const time = 0.5;
+        const target = [0.40824827551841736, 0.40824827551841736, 0, 0.8164965510368347];
+        expect(Qtn.slerp(qtn1, qtn2, time)).every(target);
+    });
+    test('Qtn.slerp [specify argument]', () => {
+        const qtn1 = Qtn.rotate(Math.PI * 0.5, [1, 0, 0]);
+        const qtn2 = Qtn.rotate(Math.PI * 0.5, [0, 1, 0]);
+        const time = 0.5;
+        const target = [];
+        expect(Qtn.slerp(qtn1, qtn2, time, target) === target).toBeTruthy();
+    });
 });
 
