@@ -54,5 +54,26 @@ describe('static method in Vec3', () => {
         const source = [10, 0, 0];
         expect(Vec3.normalize(source)).every([1, 0, 0]);
     });
+    test('Vec3.dot', () => {
+        const source1 = [1, 0, 0];
+        const source2 = [0, 1, 0];
+        const source3 = [-1, 0, 0];
+        expect(Vec3.dot(source1, source1)).toBe(1);
+        expect(Vec3.dot(source1, source2)).toBe(0);
+        expect(Vec3.dot(source1, source3)).toBe(-1);
+    });
+    test('Vec3.cross', () => {
+        const source1 = [1, 0, 0];
+        const source2 = [0, 1, 0];
+        const target = [0, 0, 1];
+        expect(Vec3.cross(source1, source2)).every(target);
+    });
+    test('Vec3.faceNormal', () => {
+        const source1 = [1, 0, 0];
+        const source2 = [0, 1, 0];
+        const source3 = [0, 0, 0];
+        const target = [0, 0, 1];
+        expect(Vec3.faceNormal(source1, source2, source3)).every(target);
+    });
 });
 
