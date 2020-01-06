@@ -160,5 +160,91 @@ describe('static method in Mat4', () => {
         const target = [];
         expect(Mat4.translate(source, vector, target) === target).toBeTruthy();
     });
+    test('Mat4.rotate [omit argument]', () => {
+        const source = Mat4.identity();
+        const angle = Math.PI * 0.5;
+        const axis = [1, 0, 0];
+        const target = [
+            1,                     0,                     0, 0,
+            0, 6.123234262925839e-17,                     1, 0,
+            0,                    -1, 6.123234262925839e-17, 0,
+            0,                     0,                     0, 1
+        ];
+        expect(Mat4.rotate(source, angle, axis)).every(target);
+    });
+    test('Mat4.rotate [specify argument]', () => {
+        const source = Mat4.identity();
+        const angle = Math.PI * 0.5;
+        const axis = [1, 0, 0];
+        const target = [];
+        expect(Mat4.rotate(source, angle, axis, target) === target).toBeTruthy();
+    });
+    test('Mat4.lookAt [omit argument]', () => {
+        const eye    = [0, 0, 1];
+        const center = [0, 0, 0];
+        const up     = [0, 1, 0];
+        const target = [
+            1,  0,  0,  0,
+            0,  1,  0,  0,
+            0,  0,  1,  0,
+            0,  0, -1,  1
+        ];
+        expect(Mat4.lookAt(eye, center, up)).every(target);
+    });
+    test('Mat4.lookAt [specify argument]', () => {
+        const source = Mat4.identity();
+        const eye    = [0, 0, 1];
+        const center = [0, 0, 0];
+        const up     = [0, 1, 0];
+        expect(Mat4.lookAt(eye, center, up, source) === source).toBeTruthy();
+    });
+    test('Mat4.perspective [omit argument]', () => {
+        const fovy   = 45;
+        const aspect = 1.0;
+        const near   = 0.1;
+        const far    = 10.0;
+        const target = [
+            2.4142136573791504,                  0,                    0,  0,
+                             0, 2.4142136573791504,                    0,  0,
+                             0,                  0,  -1.0202020406723022, -1,
+                             0,                  0, -0.20202019810676575,  0
+        ];
+        expect(Mat4.perspective(fovy, aspect, near, far)).every(target);
+    });
+    test('Mat4.perspective [specify argument]', () => {
+        const source = Mat4.identity();
+        const fovy   = 45;
+        const aspect = 1.0;
+        const near   = 0.1;
+        const far    = 10.0;
+        expect(Mat4.perspective(fovy, aspect, near, far, source) === source).toBeTruthy();
+    });
+    test('Mat4.ortho [omit argument]', () => {
+        const left   = -1;
+        const right  = 1;
+        const top    = 1;
+        const bottom = -1;
+        const near   = 0.1;
+        const far    = 10.0;
+        const target = [
+            1, 0,                    0, 0,
+            0, 1,                    0, 0,
+            0, 0, -0.20202019810676575, 0,
+            0, 0,  -1.0202020406723022, 1
+        ];
+        expect(Mat4.ortho(left, right, top, bottom, near, far)).every(target);
+    });
+    test('Mat4.ortho [specify argument]', () => {
+        const source = Mat4.identity();
+        const left   = -1;
+        const right  = 1;
+        const top    = 1;
+        const bottom = -1;
+        const near   = 0.1;
+        const far    = 10.0;
+        expect(Mat4.ortho(left, right, top, bottom, near, far, source) === source).toBeTruthy();
+
+        // console.log(Mat4.ortho(-1, 1, 1, -1, 0.1, 10.0));
+    });
 });
 
