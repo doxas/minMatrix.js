@@ -383,6 +383,11 @@ export class Mat4 {
         Mat4.lookAt(position, centerPoint, upDirection, vmat);
         Mat4.perspective(fovy, aspect, near, far, pmat);
         Mat4.multiply(pmat, vmat, vpmat);
+        return {
+            view: vmat,
+            projection: pmat,
+            viewProjection: vpmat,
+        };
     }
     /**
      * MVP 行列に相当する行列を受け取りベクトルを変換して返す
