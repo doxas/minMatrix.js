@@ -49,5 +49,44 @@ describe('static method in Qtn', () => {
         const target = [];
         expect(Qtn.copy(source, target) === target).toBeTruthy();
     });
+    test('Qtn.inverse [omit argument]', () => {
+        const source = [1, 1, 1, 1];
+        const target = [-1, -1, -1, 1];
+        expect(Qtn.inverse(source)).every(target);
+    });
+    test('Qtn.inverse [specify argument]', () => {
+        const source = [1, 1, 1, 1];
+        const target = [];
+        expect(Qtn.inverse(source, target) === target).toBeTruthy();
+    });
+    test('Qtn.normalize', () => {
+        const source = [10, 0, 0, 1];
+        const target = [1, 0, 0, 1];
+        expect(Qtn.normalize(source)).every(target);
+    });
+    test('Qtn.multiply [omit argument]', () => {
+        const source1 = [1, 0, 0, 1];
+        const source2 = [0, 1, 0, 1];
+        const target = [1, 1, 1, 1];
+        expect(Qtn.multiply(source1, source2)).every(target);
+    });
+    test('Qtn.multiply [specify argument]', () => {
+        const source1 = [1, 0, 0, 1];
+        const source2 = [0, 1, 0, 1];
+        const target = [];
+        expect(Qtn.multiply(source1, source2, target) === target).toBeTruthy();
+    });
+    test('Qtn.rotate [omit argument]', () => {
+        const angle = Math.PI * 0.5;
+        const axis = [1, 0, 0];
+        const target = [0.7071067690849304, 0, 0, 0.7071067690849304];
+        expect(Qtn.rotate(angle, axis)).every(target);
+    });
+    test('Qtn.rotate [specify argument]', () => {
+        const angle = Math.PI * 0.5;
+        const axis = [1, 0, 0];
+        const target = [];
+        expect(Qtn.rotate(angle, axis, target) === target).toBeTruthy();
+    });
 });
 
