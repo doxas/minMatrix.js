@@ -877,11 +877,6 @@ export class Geometry {
         let w, h;
         w = width / 2;
         h = height / 2;
-        if(color){
-            tc = color;
-        }else{
-            tc = [1.0, 1.0, 1.0, 1.0];
-        }
         let pos = [
             -w,  h,  0.0,
              w,  h,  0.0,
@@ -1284,3 +1279,4 @@ export class Geometry {
         return {position: pos, normal: nor, color: col, texCoord: st, index: idx}
     }
 }
+
