@@ -4,7 +4,7 @@
   "description": "simple math library.",
   "main": "src/minMatrix.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --color --verbose",
     "doc": "esdoc -c ./__docs__/esdoc.json"
   },
   "repository": {
