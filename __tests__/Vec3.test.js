@@ -30,6 +30,11 @@ describe('static method in Vec3', () => {
     test('Vec3.create', () => {
         expect(Vec3.create()).every(new Array(3).fill(0));
     });
+    test('Vec3.negate', () => {
+        const source = [1, 1, 1];
+        const target = [-1, -1, -1];
+        expect(Vec3.negate(source)).every(target);
+    });
     test('Vec3.copy [omit argument]', () => {
         const source = [1, 1, 1];
         const target = [1, 1, 1];

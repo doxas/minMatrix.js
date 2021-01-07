@@ -30,6 +30,11 @@ describe('static method in Vec2', () => {
     test('Vec2.create', () => {
         expect(Vec2.create()).every(new Array(2).fill(0));
     });
+    test('Vec2.nagate', () => {
+        const source = [1, 1];
+        const target = [-1, -1];
+        expect(Vec2.negate(source)).every(target);
+    });
     test('Vec2.copy [omit argument]', () => {
         const source = [1, 1];
         const target = [1, 1];
