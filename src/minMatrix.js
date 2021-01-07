@@ -689,6 +689,54 @@ export class Vec2 {
         return out;
     }
     /**
+     * ２つのベクトルを加算した結果を返す
+     * @param {Vec2} v0 - ２つの要素を持つベクトル
+     * @param {Vec2} v1 - ２つの要素を持つベクトル
+     * @return {number} 加算した結果
+     */
+    static add(v0, v1){
+        let out = Vec2.create();
+        out[0] = v0[0] + v1[0];
+        out[1] = v0[1] + v1[1];
+        return out;
+    }
+    /**
+     * ２つのベクトルを減算した結果を返す
+     * @param {Vec2} v0 - ２つの要素を持つベクトル
+     * @param {Vec2} v1 - ２つの要素を持つベクトル
+     * @return {number} 減算した結果
+     */
+    static sub(v0, v1){
+        let out = Vec2.create();
+        out[0] = v0[0] - v1[0];
+        out[1] = v0[1] - v1[1];
+        return out;
+    }
+    /**
+     * ２つのベクトルの要素同士を乗算した結果を返す
+     * @param {Vec2} v0 - ２つの要素を持つベクトル
+     * @param {Vec2} v1 - ２つの要素を持つベクトル
+     * @return {number} 乗算した結果
+     */
+    static multiply(v0, v1){
+        let out = Vec2.create();
+        out[0] = v0[0] * v1[0];
+        out[1] = v0[1] * v1[1];
+        return out;
+    }
+    /**
+     * ２つのベクトルの要素同士を除算した結果を返す
+     * @param {Vec2} v0 - ２つの要素を持つベクトル
+     * @param {Vec2} v1 - ２つの要素を持つベクトル
+     * @return {number} 除算した結果
+     */
+    static divide(v0, v1){
+        let out = Vec2.create();
+        out[0] = v0[0] / v1[0];
+        out[1] = v0[1] / v1[1];
+        return out;
+    }
+    /**
      * ２つのベクトルの内積の結果を返す
      * @param {Vec2} v0 - ２つの要素を持つベクトル
      * @param {Vec2} v1 - ２つの要素を持つベクトル
@@ -705,6 +753,22 @@ export class Vec2 {
      */
     static cross(v0, v1){
         return v0[0] * v1[1] - v0[1] * v1[0];
+    }
+    /**
+     * ２つのベクトル間を補間した結果を返す
+     * @param {Vec2} v0 - ３つの要素を持つベクトル
+     * @param {Vec2} v1 - ３つの要素を持つベクトル
+     * @param {number} t - 補間係数
+     * @return {Vec2} 補間の結果
+     */
+    static lerp(v0, v1, t){
+        const time = Math.min(Math.max(t, 0.0), 1.0);
+        if(time === 0.0){return Vec2.copy(v0);}
+        if(time === 1.0){return Vec2.copy(v1);}
+        let out = Vec2.sub(v1, v0);
+        out[0] = v0[0] + out[0] * time;
+        out[1] = v0[1] + out[1] * time;
+        return out;
     }
 }
 
