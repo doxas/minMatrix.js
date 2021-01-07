@@ -54,6 +54,30 @@ describe('static method in Vec2', () => {
         const source = [10, 0];
         expect(Vec2.normalize(source)).every([1, 0]);
     });
+    test('Vec2.add', () => {
+        const source1 = [0, 0];
+        const source2 = [1, 2];
+        const target = [1, 2];
+        expect(Vec2.add(source1, source2)).every(target);
+    });
+    test('Vec2.sub', () => {
+        const source1 = [0, 0];
+        const source2 = [1, 2];
+        const target = [-1, -2];
+        expect(Vec2.sub(source1, source2)).every(target);
+    });
+    test('Vec2.multiply', () => {
+        const source1 = [2, 3];
+        const source2 = [2, 3];
+        const target = [4, 9];
+        expect(Vec2.multiply(source1, source2)).every(target);
+    });
+    test('Vec2.divide', () => {
+        const source1 = [8, 27];
+        const source2 = [2, 3];
+        const target = [4, 9];
+        expect(Vec2.divide(source1, source2)).every(target);
+    });;
     test('Vec2.dot', () => {
         const source1 = [1, 0];
         const source2 = [0, 1];
@@ -69,5 +93,11 @@ describe('static method in Vec2', () => {
         expect(Vec2.cross(source1, source2)).toBe(1);
         expect(Vec2.cross(source1, source3)).toBe(-1);
     });
+    test('Vec2.lerp', () => {
+        const source1 = [0, 0];
+        const source2 = [2, 2];
+        const target = [1, 1];
+        expect(Vec2.lerp(source1, source2, 0.5)).every(target);
+    });;
 });
 
