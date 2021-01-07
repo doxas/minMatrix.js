@@ -54,6 +54,30 @@ describe('static method in Vec3', () => {
         const source = [10, 0, 0];
         expect(Vec3.normalize(source)).every([1, 0, 0]);
     });
+    test('Vec3.add', () => {
+        const source1 = [0, 0, 0];
+        const source2 = [1, 2, 3];
+        const target = [1, 2, 3];
+        expect(Vec3.add(source1, source2)).every(target);
+    });
+    test('Vec3.sub', () => {
+        const source1 = [0, 0, 0];
+        const source2 = [1, 2, 3];
+        const target = [-1, -2, -3];
+        expect(Vec3.sub(source1, source2)).every(target);
+    });
+    test('Vec3.multiply', () => {
+        const source1 = [2, 3, 4];
+        const source2 = [2, 3, 4];
+        const target = [4, 9, 16];
+        expect(Vec3.multiply(source1, source2)).every(target);
+    });
+    test('Vec3.divide', () => {
+        const source1 = [8, 27, 64];
+        const source2 = [2, 3, 4];
+        const target = [4, 9, 16];
+        expect(Vec3.divide(source1, source2)).every(target);
+    });
     test('Vec3.dot', () => {
         const source1 = [1, 0, 0];
         const source2 = [0, 1, 0];
@@ -67,6 +91,12 @@ describe('static method in Vec3', () => {
         const source2 = [0, 1, 0];
         const target = [0, 0, 1];
         expect(Vec3.cross(source1, source2)).every(target);
+    });
+    test('Vec3.lerp', () => {
+        const source1 = [0, 0, 0];
+        const source2 = [2, 2, 2];
+        const target = [1, 1, 1];
+        expect(Vec3.lerp(source1, source2, 0.5)).every(target);
     });
     test('Vec3.faceNormal', () => {
         const source1 = [1, 0, 0];
