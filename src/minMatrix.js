@@ -517,6 +517,58 @@ export class Vec3 {
         return out;
     }
     /**
+     * ２つのベクトルを加算した結果を返す
+     * @param {Vec3} v0 - ３つの要素を持つベクトル
+     * @param {Vec3} v1 - ３つの要素を持つベクトル
+     * @return {number} 加算した結果
+     */
+    static add(v0, v1){
+        let out = Vec3.create();
+        out[0] = v0[0] + v1[0];
+        out[1] = v0[1] + v1[1];
+        out[2] = v0[2] + v1[2];
+        return out;
+    }
+    /**
+     * ２つのベクトルを減算した結果を返す
+     * @param {Vec3} v0 - ３つの要素を持つベクトル
+     * @param {Vec3} v1 - ３つの要素を持つベクトル
+     * @return {number} 減算した結果
+     */
+    static sub(v0, v1){
+        let out = Vec3.create();
+        out[0] = v0[0] - v1[0];
+        out[1] = v0[1] - v1[1];
+        out[2] = v0[2] - v1[2];
+        return out;
+    }
+    /**
+     * ２つのベクトルの要素同士を乗算した結果を返す
+     * @param {Vec3} v0 - ３つの要素を持つベクトル
+     * @param {Vec3} v1 - ３つの要素を持つベクトル
+     * @return {number} 乗算した結果
+     */
+    static multiply(v0, v1){
+        let out = Vec3.create();
+        out[0] = v0[0] * v1[0];
+        out[1] = v0[1] * v1[1];
+        out[2] = v0[2] * v1[2];
+        return out;
+    }
+    /**
+     * ２つのベクトルの要素同士を除算した結果を返す
+     * @param {Vec3} v0 - ３つの要素を持つベクトル
+     * @param {Vec3} v1 - ３つの要素を持つベクトル
+     * @return {number} 除算した結果
+     */
+    static divide(v0, v1){
+        let out = Vec3.create();
+        out[0] = v0[0] / v1[0];
+        out[1] = v0[1] / v1[1];
+        out[2] = v0[2] / v1[2];
+        return out;
+    }
+    /**
      * ２つのベクトルの内積の結果を返す
      * @param {Vec3} v0 - ３つの要素を持つベクトル
      * @param {Vec3} v1 - ３つの要素を持つベクトル
