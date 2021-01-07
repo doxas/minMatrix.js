@@ -591,6 +591,23 @@ export class Vec3 {
         return out;
     }
     /**
+     * ２つのベクトル間を補間した結果を返す
+     * @param {Vec3} v0 - ３つの要素を持つベクトル
+     * @param {Vec3} v1 - ３つの要素を持つベクトル
+     * @param {number} t - 補間係数
+     * @return {Vec3} 補間の結果
+     */
+    static lerp(v0, v1, t){
+        const time = Math.min(Math.max(t, 0.0), 1.0);
+        if(time === 0.0){return Vec3.copy(v0);}
+        if(time === 1.0){return Vec3.copy(v1);}
+        let out = Vec3.sub(v1, v0);
+        out[0] = v0[0] + out[0] * time;
+        out[1] = v0[1] + out[1] * time;
+        out[2] = v0[2] + out[2] * time;
+        return out;
+    }
+    /**
      * ３つの座標から面法線を求めて返す
      * @param {Vec3} v0 - ３つの要素を持つ座標
      * @param {Vec3} v1 - ３つの要素を持つ座標
