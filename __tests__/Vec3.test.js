@@ -98,6 +98,18 @@ describe('static method in Vec3', () => {
         const target = [1, 1, 1];
         expect(Vec3.lerp(source1, source2, 0.5)).every(target);
     });
+    test('Vec3.lerp [over limit positive value]', () => {
+        const source1 = [1, 1, 1];
+        const source2 = [2, 2, 2];
+        const target = [2, 2, 2];
+        expect(Vec3.lerp(source1, source2, 2.0)).every(target);
+    });
+    test('Vec3.lerp [over limit negative value]', () => {
+        const source1 = [1, 1, 1];
+        const source2 = [2, 2, 2];
+        const target = [1, 1, 1];
+        expect(Vec3.lerp(source1, source2, -1.0)).every(target);
+    });
     test('Vec3.faceNormal', () => {
         const source1 = [1, 0, 0];
         const source2 = [0, 1, 0];

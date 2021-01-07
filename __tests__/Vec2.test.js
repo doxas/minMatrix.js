@@ -77,7 +77,7 @@ describe('static method in Vec2', () => {
         const source2 = [2, 3];
         const target = [4, 9];
         expect(Vec2.divide(source1, source2)).every(target);
-    });;
+    });
     test('Vec2.dot', () => {
         const source1 = [1, 0];
         const source2 = [0, 1];
@@ -98,6 +98,18 @@ describe('static method in Vec2', () => {
         const source2 = [2, 2];
         const target = [1, 1];
         expect(Vec2.lerp(source1, source2, 0.5)).every(target);
-    });;
+    });
+    test('Vec2.lerp [over limit positive value]', () => {
+        const source1 = [1, 1];
+        const source2 = [2, 2];
+        const target = [2, 2];
+        expect(Vec2.lerp(source1, source2, 2.0)).every(target);
+    });
+    test('Vec2.lerp [over limit positive value]', () => {
+        const source1 = [1, 1];
+        const source2 = [2, 2];
+        const target = [1, 1];
+        expect(Vec2.lerp(source1, source2, -1.0)).every(target);
+    });
 });
 
