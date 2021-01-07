@@ -110,7 +110,7 @@ describe('static method in Vec2', () => {
         const target = [2, 2];
         expect(Vec2.lerp(source1, source2, 2.0)).every(target);
     });
-    test('Vec2.lerp [over limit positive value]', () => {
+    test('Vec2.lerp [over limit negative value]', () => {
         const source1 = [1, 1];
         const source2 = [2, 2];
         const target = [1, 1];
