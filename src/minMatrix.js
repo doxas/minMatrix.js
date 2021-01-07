@@ -459,6 +459,18 @@ export class Vec3 {
         return new Float32Array(3);
     }
     /**
+     * 符号を反転する
+     * @param {Vec3} v - ３つの要素を持つベクトル
+     * @return {Vec3} 符号を反転したベクトル
+     */
+    static negate(v){
+        let out = Vec3.create();
+        out[0] = -v[0];
+        out[1] = -v[1];
+        out[2] = -v[2];
+        return out;
+    }
+    /**
      * ベクトルの値をコピーして返す（第二引数が与えられた場合そのベクトルがコピー先となる）
      * @param {Vec3} target - コピー元のベクトル
      * @param {Vec3} [source] - コピー先のベクトル
@@ -636,6 +648,17 @@ export class Vec2 {
      */
     static create(){
         return new Float32Array(2);
+    }
+    /**
+     * 符号を反転する
+     * @param {Vec2} v - ２つの要素を持つベクトル
+     * @return {Vec2} 符号を反転したベクトル
+     */
+    static negate(v){
+        let out = Vec2.create();
+        out[0] = -v[0];
+        out[1] = -v[1];
+        return out;
     }
     /**
      * ベクトルの値をコピーして返す（第二引数が与えられた場合そのベクトルがコピー先となる）
