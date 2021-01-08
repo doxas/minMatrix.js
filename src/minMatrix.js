@@ -349,6 +349,25 @@ export class Mat4 {
     /**
      * 行列にベクトルを乗算する（ベクトルに行列を適用する）
      * @param {Mat4} mat - 適用する行列
+     * @param {Vec3} vec - 乗算するベクトル（３つの要素を持つ配列）
+     * @return {Float32Array} 結果のベクトル
+     */
+    static toVecIII(mat, vec){
+        let a = mat[0],  b = mat[1],  c = mat[2],
+            e = mat[4],  f = mat[5],  g = mat[6],
+            i = mat[8],  j = mat[9],  k = mat[10],
+            m = mat[12], n = mat[13], o = mat[14];
+        let x = vec[0], y = vec[1], z = vec[2];
+        let out = [];
+        out[0] = x * a + y * e + z * i + m;
+        out[1] = x * b + y * f + z * j + n;
+        out[2] = x * c + y * g + z * k + o;
+        vec = out;
+        return out;
+    }
+    /**
+     * 行列にベクトルを乗算する（ベクトルに行列を適用する）
+     * @param {Mat4} mat - 適用する行列
      * @param {Array.<number>} vec - 乗算するベクトル（４つの要素を持つ配列）
      * @return {Float32Array} 結果のベクトル
      */
