@@ -294,6 +294,12 @@ describe('static method in Mat4', () => {
         const target = [];
         expect(Mat4.inverse(source, target) === target).toBeTruthy();
     });
+    test('Mat4.toVecIII', () => {
+        const source = Mat4.scale(Mat4.identity(), [1.0, 2.0, 3.0]);
+        const vector = [1, 2, 3];
+        const target = [1, 4, 9];
+        expect(Mat4.toVecIII(source, vector)).every(target);
+    });
     test('Mat4.toVecIV', () => {
         const source = Mat4.scale(Mat4.identity(), [1.0, 2.0, 3.0]);
         const vector = [1, 2, 3, 4];
